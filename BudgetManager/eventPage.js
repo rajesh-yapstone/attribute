@@ -1,6 +1,6 @@
 var menuItem = {
     "id": "spendMoney",
-    "title": "Spend Money",
+    "title": "@",
     "contexts": ["selection"]
 };
 
@@ -9,6 +9,31 @@ function isInt(value) {
          parseInt(Number(value)) == value && 
          !isNaN(parseInt(value, 10));
 }
+
+var url="";
+
+chrome.tabs.getSelected(null, function(tab) {
+	alert("url 1="+ tab.url);
+    url=tab.url;
+})
+
+setTimeout(function(){
+    alert("inside timer:"+url);
+
+
+    var response =    $.ajax({  
+        url:'http://localhost:8080/passport.action?url='+url,  
+        type:'POST',
+        contentType:false,
+        async:true,
+        dataType: 'application/json;charset=utf-8' 
+    }).responseText;  
+},500);
+
+ 
+ 
+
+
 
 chrome.contextMenus.create(menuItem);
 

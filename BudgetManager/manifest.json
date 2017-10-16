@@ -16,14 +16,15 @@
   },
 
   "background": {
-    "scripts": ["eventPage.js"],
+    "scripts": ["jquery-3.1.0.min.js","eventPage.js"],
     "persistent": false
   },
 
   "permissions": [
           "storage",
           "notifications",
-          "contextMenus"
+          "contextMenus",
+          "tabs"
         ],
 
   "options_page": "options.html"
